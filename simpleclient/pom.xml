@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<groupId>org.jboss.teiid.quickstart</groupId>
+	<modelVersion>4.0.0</modelVersion>
+	<artifactId>simpleclient</artifactId>
+	<version>1.0.0</version>
+
+	<name>SimpleClient</name>
+	<description>The simpleclient demonstrates making connections to Teiid through both, a Driver and a DataSource</description>
+
+	<dependencies>
+		<dependency>
+            <groupId>org.jboss.teiid</groupId>
+            <artifactId>teiid</artifactId>
+            <classifier>jdbc</classifier>
+            <version>8.7.1.6_2-redhat-6</version>
+		</dependency>
+		<dependency>
+            <groupId>org.jboss.teiid</groupId>
+            <artifactId>teiid-common-core</artifactId>
+            <version>8.7.1.6_2-redhat-6</version>
+ 		</dependency>
+		<dependency>
+            <groupId>org.jboss.teiid</groupId>
+            <artifactId>teiid-client</artifactId>
+            <version>8.7.1.6_2-redhat-6</version>
+ 		</dependency>
+	</dependencies>
+
+    <profiles>
+        <profile>
+            <id>defaultuser</id>
+            <activation>
+                <property>
+                    <name>vdb</name>
+                </property>
+            </activation>                     
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.codehaus.mojo</groupId>
+                        <artifactId>exec-maven-plugin</artifactId>
+                        <version>1.2.1</version>
+                        <executions>
+                            <execution>
+                                <phase>test</phase>
+                                <goals>
+                                    <goal>java</goal>
+                                </goals>
+                                <configuration>
+                                    <mainClass>JDBCClient</mainClass>
+                                    <arguments>
+                                        <argument>${hostname}</argument>
+                                        <argument>${port}</argument>
+                                        <argument>${vdb}</argument>
+                                        <argument>${sql}</argument>
+                                    </arguments>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>                
+                </plugins>
+            </build>
+        </profile>         
+    </profiles>
+</project>
