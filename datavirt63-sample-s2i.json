@@ -36,7 +36,7 @@
         {
             "description": "Git source URI for application",
             "name": "SOURCE_REPOSITORY_URL",
-            "value": "://github.com/RadekKoubsky/teiid-designer-samples-federation-openshift",
+            "value": "https://github.com/RadekKoubsky/teiid-designer-samples-federation-openshift",
             "required": true
         },
         {

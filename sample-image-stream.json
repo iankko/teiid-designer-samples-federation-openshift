@@ -1,0 +1,22 @@
+{
+    "kind": "List",
+    "apiVersion": "v1",
+    "metadata": {
+        "name": "jboss-image-streams",
+        "annotations": {
+            "description": "ImageStream definitions for JBoss Middleware products."
+        }
+    },
+    "items": [
+        {
+            "kind": "ImageStream",
+            "apiVersion": "v1",
+            "metadata": {
+                "name": "jdv-sample"
+            },
+            "spec": {
+                "dockerImageRepository": "docker-registry.usersys.redhat.com/rkoubsky/jdv-sample"
+            }
+        }
+    ]
+}
